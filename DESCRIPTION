@@ -16,7 +16,7 @@ URL: http://github.com/hrbrmstr/swatches
 BugReports: https://github.com/hrbrmstr/swatches/issues
 License: MIT + file LICENSE
 Imports:
-    httr
+    httr (>= 0.6.0)
 Suggests:
     testthat
 Depends:
