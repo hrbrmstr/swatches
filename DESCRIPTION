@@ -9,9 +9,9 @@ Description: There are numerous places to create and download color
     palettes and these are usually shared in Adobe swatch file formats of
     some kind. There is also often the need to use standard palettes
     developed within an organization to ensure that aesthetics are carried over
-    into all projects and output. This package makes it possible to use
-    Adobe swatches in R graphics without the need to transcribe or convert
-    color values by hand or with other programs.
+    into all projects and output. Now there is a way to read these swatch
+    files in R and avoid transcribing or converting color values by hand or
+    or with other programs.
 URL: http://github.com/hrbrmstr/swatches
 BugReports: https://github.com/hrbrmstr/swatches/issues
 License: MIT + file LICENSE
