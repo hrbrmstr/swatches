@@ -24,17 +24,15 @@ When using named color palettes in a \code{ggplot2} \code{scale_} context, you
     greyscale colors are supported.
 }
 \examples{
-\dontrun{
 # built-in palette
 eighties <- read_aco(system.file("palettes",
                      "tomorrow_night_eighties.aco", package="swatches"))
 print(eighties)
-show_palette(eighties)
+#show_palette(eighties)
 
 # from the internet directly
-tomorrow_night <- read_aco("http://l.dds.ec/tomorrow-night-aco")
-print(tomorrow_night)
-show_palette(tomorrow_night)
-}
+# tomorrow_night <- read_aco("http://l.dds.ec/tomorrow-night-aco")
+# print(tomorrow_night)
+# show_palette(tomorrow_night)
 }
 

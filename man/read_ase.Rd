@@ -24,18 +24,16 @@ When using named color palettes in a \code{ggplot2} \code{scale_} context, you
     greyscale colors are supported.
 }
 \examples{
-\dontrun{
-# built in palette
+# built-in palette
 keep_the_change <- read_ase(system.file("palettes",
                             "keep_the_change.ase", package="swatches"))
 print(keep_the_change)
-show_palette(keep_the_change)
+# show_palette(keep_the_change)
 
 # from the internet directly
-github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
-metal <- read_ase(github)
-print(metal)
-show_palette(metal)
-}
+# github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
+# metal <- read_ase(github)
+# print(metal)
+# show_palette(metal)
 }
 

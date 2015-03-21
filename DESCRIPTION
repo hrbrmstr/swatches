@@ -1,6 +1,6 @@
 Package: swatches
 Type: Package
-Title: Read and visualize Adobe color swatch files
+Title: Read and Visualize Adobe Color Swatch Files
 Version: 0.2
 Date: 2015-03-21
 Author: Bob Rudis (@hrbrmstr)

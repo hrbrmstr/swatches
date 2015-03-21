@@ -13,12 +13,10 @@ show_palette(palette)
 Given a character vector (hex RGB values), display palette in graphics window.
 }
 \examples{
-\dontrun{
-# built in palette
+# built-in palette
 keep_the_change <- read_ase(system.file("palettes",
                             "keep_the_change.ase", package="swatches"))
 print(keep_the_change)
-show_palette(keep_the_change)
-}
+# show_palette(keep_the_change)
 }
 

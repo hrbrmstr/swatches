@@ -11,18 +11,17 @@
 #'     Not sure if this is a bug or a deliberate feature in ggplot2. Also, Neither Lab nor
 #'     greyscale colors are supported.
 #' @export
-#' @examples \dontrun{
+#' @examples
 #' # built-in palette
 #' eighties <- read_aco(system.file("palettes",
 #'                      "tomorrow_night_eighties.aco", package="swatches"))
 #' print(eighties)
-#' show_palette(eighties)
+#' #show_palette(eighties)
 #'
 #' # from the internet directly
-#' tomorrow_night <- read_aco("http://l.dds.ec/tomorrow-night-aco")
-#' print(tomorrow_night)
-#' show_palette(tomorrow_night)
-#' }
+#' # tomorrow_night <- read_aco("http://l.dds.ec/tomorrow-night-aco")
+#' # print(tomorrow_night)
+#' # show_palette(tomorrow_night)
 read_aco <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (is_url(path)) {
@@ -70,19 +69,17 @@ read_aco <- function(path, use_names=TRUE, .verbose=FALSE) {
 #'     greyscale colors are supported.
 #' @export
 #' @examples
-#' \dontrun{
-#' # built in palette
+#' # built-in palette
 #' keep_the_change <- read_ase(system.file("palettes",
 #'                             "keep_the_change.ase", package="swatches"))
 #' print(keep_the_change)
-#' show_palette(keep_the_change)
+#' # show_palette(keep_the_change)
 #'
 #' # from the internet directly
-#' github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
-#' metal <- read_ase(github)
-#' print(metal)
-#' show_palette(metal)
-#' }
+#' # github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
+#' # metal <- read_ase(github)
+#' # print(metal)
+#' # show_palette(metal)
 read_ase <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (is_url(path)) {
@@ -122,13 +119,11 @@ read_ase <- function(path, use_names=TRUE, .verbose=FALSE) {
 #' @param palette vector of character hex RGB values
 #' @export
 #' @examples
-#' \dontrun{
-#' # built in palette
+#' # built-in palette
 #' keep_the_change <- read_ase(system.file("palettes",
 #'                             "keep_the_change.ase", package="swatches"))
 #' print(keep_the_change)
-#' show_palette(keep_the_change)
-#' }
+#' # show_palette(keep_the_change)
 show_palette <- function(palette) {
   n <- length(palette)
   if (length(palette > 0)) {
