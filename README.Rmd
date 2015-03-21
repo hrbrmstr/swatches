@@ -9,7 +9,7 @@ output:
 
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-swatches is a package to read (and eventually write) Adobe color (ASE/ACO) files
+`swatches` is a package to read (and eventually write) Adobe color (ASE/ACO) files
 
 In _Envisioning Information_, Edward Tufte says _"&hellip;avoiding catastrophe becomes the first
 principle in bringing color to information: Above all, do no harm."_ R users gain a quick upper hand

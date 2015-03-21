@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-swatches is a package to read (and eventually write) Adobe color (ASE/ACO) files
+`swatches` is a package to read (and eventually write) Adobe color (ASE/ACO) files
 
 In *Envisioning Information*, Edward Tufte says *"…avoiding catastrophe becomes the first principle in bringing color to information: Above all, do no harm."* R users gain a quick upper hand in adhering to this "do no harm" thanks to sane defaults in `ggplot2` and packages like [ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html) and [RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html) that enable use of established, good color palettes.
 
@@ -180,7 +180,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Sat Mar 21 12:30:25 2015"
+    ## [1] "Sat Mar 21 12:53:35 2015"
 
 ``` r
 test_dir("tests/")
