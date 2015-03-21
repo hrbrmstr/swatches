@@ -1,0 +1,134 @@
+---
+title: "README"
+author: "Bob Rudis"
+date: March 21, 2015
+output:
+  md_document:
+    variant: markdown_github
+---
+
+[![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
+
+swatches is a package to read (and eventually write) Adobe color (ASE/ACO) files
+
+In _Envisioning Information_, Edward Tufte says _"&hellip;avoiding catastrophe becomes the first
+principle in bringing color to information: Above all, do no harm."_ R users gain a quick upper hand
+in adhering to this "do no harm" thanks to sane defaults in `ggplot2` and packages like [ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html) and 
+[RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html) that enable use of established, good color palettes.
+
+If you do visualization work in conjunction with a design shop or organization that establishes their own
+palettes and themes there will often be standard palettes that must be adhered to. These are usually stored and
+shared in some type of Adobe swatch file format. There are also many sites like [Adobe Color CC](https://color.adobe.com/) and
+[COLOUR Lovers](http://www.colourlovers.com/) where folks can create and share color palettes. 
+
+This package enables you to use the colors straight from `.ase` or `.aso` files and avoid the cutting/pasting of hex codes 
+or using color pickers to extract the color information. You can read these swatch files directly from the internet and/or
+include the files directly in your R projects. This will make it easier to modify a resource versus change code.
+
+NOTE that just beacuse an ASE or ACO file exists on the internet does _not_ mean that it will let you "do no harm". You 
+still need to use good judgement from knowledge/experience (or advice from experts) to ensure you are using colors effectively.
+This package just opens up the world of colors in R a little bit more.
+
+The following functions are implemented:
+
+- `read_aco` : Read colors from Adobe Color (ACO) files
+- `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
+- `show_palette` :Display a color palette
+
+### TODO
+
+- Grayscale support (just need to find or gen Grayscale ASE/ACO files, if you have a few please hook me up)
+- LAB support (could use some help with this)
+- Writing out ACO or ASE files (not sure this is needed, tho)
+
+### News
+
+- Version `0.1` released
+- Version `0.2` released : ACO v2 support
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/swatches")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=80)
+```
+
+### Usage & Exposition
+
+```{r}
+library(swatches)
+
+# current verison
+packageVersion("swatches")
+
+```
+
+One good source for palettes is the ["Most Popular" section](https://color.adobe.com/explore/most-popular/?time=all) on 
+Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette files directly locally or download them directly 
+(registration required).
+
+![](https://www.evernote.com/shard/s1/sh/357686a4-3688-4f01-887d-463a259fc5ec/a83815d1519e5db35f80f5e5c52e15e3/deep/0/Explore---Most-Popular---Adobe-Color-CC.png)
+
+The "Herbs and Spice" and "Keep the Change" palettes are kinda nifty, and also included in this package (since Adobe has yet to 
+release the new API for the color site for automatic downloading). We can take a quick look at both of them. Here they are from the web site:
+
+![](http://note.io/1I51HRo)
+
+And, there they are via this package:
+
+```{r fig.height=2.5}
+herbs_and_spice <- read_ase(system.file("palettes", "herbs_and_spice.ase", package="swatches"))
+print(herbs_and_spice)
+show_palette(herbs_and_spice)
+```
+
+```{r fig.height=2.5}
+keep_the_change <- read_ase(system.file("palettes", "keep_the_change.ase", package="swatches"))
+print(keep_the_change)
+show_palette(keep_the_change)
+```
+
+As said earlier, you can also read directly from a URL. Here is a "metal" palette ripped straight [from github](https://github.com/picwellwisher12pk/en_us/):
+
+```{r fig.height=2.5}
+metal <- read_ase("https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase")
+print(metal)
+show_palette(metal)
+```
+
+As you can see, this "metal" palette actually had named colors (albeit bland, CMYK value names).
+
+Some palettes, like the Omega Nebula (CC-BY-SA [davidgav](http://www.colourlovers.com/lover/davidgav/loveNote)) one included with the package, have license restrictions (the mind _boggles_), so be aware of that when blatantly using others' designs without attribution. David's palette has much better names:
+
+```{r fig.height=2.5}
+omega_nebula <- read_ase(system.file("palettes", "omega_nebula.ase", package="swatches"))
+print(omega_nebula)
+show_palette(omega_nebula)
+```
+
+For some reason (I haven't poked at the source code yet or talked to @hadleywickham), ggplot `scale_*_manual` (color/fill)'s do _not_
+like named color vectors. So you need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
+
+```{r fig.height=4}
+library(ggplot2)
+gg <- ggplot(mtcars, aes(x=mpg, y=disp))
+gg <- gg + geom_point(aes(col=factor(gear)), size=3)
+gg <- gg + scale_color_manual(values=unname(keep_the_change))
+gg <- gg + theme_bw()
+gg
+```
+
+### Test Results
+
+```{r}
+library(swatches)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
