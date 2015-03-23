@@ -1,19 +1,22 @@
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-`swatches` is a package to read (and eventually write) Adobe color (ASE/ACO) files
+`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL) files
 
 In *Envisioning Information*, Edward Tufte says *"…avoiding catastrophe becomes the first principle in bringing color to information: Above all, do no harm."* R users gain a quick upper hand in adhering to this "do no harm" thanks to sane defaults in `ggplot2` and packages like [ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html) and [RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html) that enable use of established, good color palettes.
 
-If you do visualization work in conjunction with a design shop or organization that establishes their own palettes and themes there will often be standard palettes that must be adhered to. These are usually stored and shared in some type of Adobe swatch file format. There are also many sites like [Adobe Color CC](https://color.adobe.com/) and [COLOUR Lovers](http://www.colourlovers.com/) where folks can create and share color palettes.
+If you do visualization work in conjunction with a design shop or organization that establishes their own palettes and themes there will often be standard palettes that must be adhered to. These are usually stored and shared in some type of Adobe swatch file format. There are also many sites like [Adobe Color CC](https://color.adobe.com/) and [COLOUR Lovers](http://www.colourlovers.com/) where folks can create and share color palettes. Plus, there are thousands of other palette files in dozens of palette formates.
 
-This package enables you to use the colors straight from `.ase` or `.aso` files and avoid the cutting/pasting of hex codes or using color pickers to extract the color information. You can read these swatch files directly from the internet and/or include the files directly in your R projects. This will make it easier to modify a resource versus change code.
+This package enables you to use the colors straight from `.ase`, `.aso`, `.gpl`, `.soc` or `.color` files and avoid the cutting/pasting of hex codes or using color pickers to extract the color information. You can read these swatch files directly from the internet and/or include the files directly in your R projects. This will make it easier to modify a resource versus change code.
 
-NOTE that just beacuse an ASE or ACO file exists on the internet does *not* mean that it will let you "do no harm". You still need to use good judgement from knowledge/experience (or advice from experts) to ensure you are using colors effectively. This package just opens up the world of colors in R a little bit more.
+NOTE that just beacuse an ASE, ACO, GPL, SOC or color file exists on the internet does *not* mean that it will let you "do no harm". You still need to use good judgement from knowledge/experience (or advice from experts) to ensure you are using colors effectively. This package just opens up the world of colors in R a little bit more.
 
 The following functions are implemented:
 
 -   `read_aco` : Read colors from Adobe Color (ACO) files
 -   `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
+-   `read_gpl` : Read GIMP Palette (GPL) files
+-   `read_soc` : Read OpenOffice palette (SOC) files
+-   `read_kde` : Read KDE Palette (colors) files
 -   `show_palette` :Display a color palette
 
 ### TODO
@@ -26,6 +29,7 @@ The following functions are implemented:
 
 -   Version `0.1` released
 -   Version `0.2` released : ACO v2 support
+-   Version `0.3` released : GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
 
 ### Installation
 
@@ -37,16 +41,12 @@ devtools::install_github("hrbrmstr/swatches")
 
 ``` r
 library(swatches)
-```
 
-    ## Loading required package: pack
-
-``` r
 # current verison
 packageVersion("swatches")
 ```
 
-    ## [1] '0.2'
+    ## [1] '0.3'
 
 One good source for palettes is the ["Most Popular" section](https://color.adobe.com/explore/most-popular/?time=all) on Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette files directly locally or download them directly (registration required).
 
@@ -180,7 +180,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Sat Mar 21 12:53:35 2015"
+    ## [1] "Mon Mar 23 17:24:15 2015"
 
 ``` r
 test_dir("tests/")

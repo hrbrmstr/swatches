@@ -4,8 +4,8 @@
 \name{swatches}
 \alias{swatches}
 \alias{swatches-package}
-\title{Read Adobe color/swatch files}
+\title{Read color/swatch files}
 \description{
-Read Adobe color/swatch files
+Read color/swatch files
 }
 

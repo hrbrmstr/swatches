@@ -1,8 +1,8 @@
 Package: swatches
 Type: Package
-Title: Read and Visualize Adobe Color Swatch Files
-Version: 0.2
-Date: 2015-03-21
+Title: Read and Visualize Color Swatch Files
+Version: 0.3
+Date: 2015-03-23
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
 Description: There are numerous places to create and download color
@@ -11,14 +11,22 @@ Description: There are numerous places to create and download color
     developed within an organization to ensure that aesthetics are carried over
     into all projects and output. Now there is a way to read these swatch
     files in R and avoid transcribing or converting color values by hand or
-    or with other programs.
+    or with other programs. This package provides functions to read and
+    inspect Adobe Color (ACO), Adobe Swatch Exchange (ASE), GIMP Palette (GPL),
+    OpenOffice palette (SOC) files and KDE Palette (colors) files. Detailed
+    descriptions of Adobe Color and Swatch Exchange file formats as well as other
+    swatch file formats can be found at
+    http://www.selapa.net/swatches/colors/fileformats.php
 URL: http://github.com/hrbrmstr/swatches
 BugReports: https://github.com/hrbrmstr/swatches/issues
 License: MIT + file LICENSE
+NeedsCompilation: Yes
 Imports:
-    httr (>= 0.6.0)
+    httr (>= 0.6.0),
+    pack,
+    stringr,
+    XML
 Suggests:
     testthat
 Depends:
-    R (>= 3.0.0),
-    pack
+    R (>= 3.1.0)

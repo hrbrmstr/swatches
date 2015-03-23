@@ -11,7 +11,7 @@ read_aco(path, use_names = TRUE, .verbose = FALSE)
 
 \item{use_names}{add color names to the vector (defaults to \code{TRUE}). See NOTE}
 
-\item{.verbose}{show extra information about ACO file processing#'}
+\item{.verbose}{show extra information about ACO file processing}
 }
 \description{
 Given a path or URL to an \code{.aco} file, this function will return
