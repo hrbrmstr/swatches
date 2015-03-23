@@ -25,7 +25,8 @@ Imports:
     httr (>= 0.6.0),
     pack,
     stringr,
-    XML
+    XML,
+    tools
 Suggests:
     testthat
 Depends:
