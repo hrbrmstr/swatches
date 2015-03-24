@@ -1,7 +1,7 @@
 Package: swatches
 Type: Package
 Title: Read and Visualize Color Swatch Files
-Version: 0.3
+Version: 0.3.1
 Date: 2015-03-23
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
@@ -20,7 +20,7 @@ Description: There are numerous places to create and download color
 URL: http://github.com/hrbrmstr/swatches
 BugReports: https://github.com/hrbrmstr/swatches/issues
 License: MIT + file LICENSE
-NeedsCompilation: Yes
+NeedsCompilation: yes
 Imports:
     httr (>= 0.6.0),
     pack,

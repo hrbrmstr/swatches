@@ -2,7 +2,7 @@
 % Please edit documentation in R/soc.R
 \name{read_soc}
 \alias{read_soc}
-\title{#Read colors from OpenOffice Palette (SOC) files}
+\title{Read colors from OpenOffice Palette (SOC) files}
 \usage{
 read_soc(path, use_names = TRUE, .verbose = FALSE)
 }
@@ -20,13 +20,13 @@ a named character vector (if color names are present) of hex RGB colors.
 \note{
 When using named color palettes in a \code{ggplot2} \code{scale_} context, you
     must \code{unname} them or set \code{use_names} to \code{FALSE}.
-    Not sure if this is a bug or a deliberate feature in ggplot2. Also, Neither Lab nor
-    greyscale colors are supported.
+    Not sure if this is a bug or a deliberate feature in ggplot2.
 }
 \examples{
 # built-in palette
-ccooo <- read_soc(system.file("palettes",
-                     "cc-ooo.soc", package="swatches"))
+soc_file <- system.file("palettes", "ccooo.soc", package="swatches")
+system(sprintf("cat \%s", soc_file))
+ccooo <- read_soc(soc_file)
 print(ccooo)
 #show_palette(ccooo)
 
