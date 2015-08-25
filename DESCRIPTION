@@ -1,12 +1,12 @@
 Package: swatches
 Type: Package
 Title: Read and Visualize Color Swatch Files
-Version: 0.3.1
-Date: 2015-03-23
+Version: 0.4.1
+Date: 2015-08-24
 Author: Bob Rudis (@hrbrmstr)
 Maintainer: Bob Rudis <bob@rudis.net>
 Description: There are numerous places to create and download color
-    palettes and these are usually shared in Adobe swatch file formats of
+    palettes. These are usually shared in Adobe swatch file formats of
     some kind. There is also often the need to use standard palettes
     developed within an organization to ensure that aesthetics are carried over
     into all projects and output. Now there is a way to read these swatch
@@ -16,7 +16,7 @@ Description: There are numerous places to create and download color
     OpenOffice palette (SOC) files and KDE Palette (colors) files. Detailed
     descriptions of Adobe Color and Swatch Exchange file formats as well as other
     swatch file formats can be found at
-    http://www.selapa.net/swatches/colors/fileformats.php
+    <http://www.selapa.net/swatches/colors/fileformats.php>.
 URL: http://github.com/hrbrmstr/swatches
 BugReports: https://github.com/hrbrmstr/swatches/issues
 License: MIT + file LICENSE
@@ -26,7 +26,8 @@ Imports:
     pack,
     stringr,
     XML,
-    tools
+    tools,
+    colorspace
 Suggests:
     testthat
 Depends:

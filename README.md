@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL) files
+`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL/SOC/KDE/COLORS) files
 
 In *Envisioning Information*, Edward Tufte says *"…avoiding catastrophe becomes the first principle in bringing color to information: Above all, do no harm."* R users gain a quick upper hand in adhering to this "do no harm" thanks to sane defaults in `ggplot2` and packages like [ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html) and [RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html) that enable use of established, good color palettes.
 
@@ -12,6 +12,7 @@ NOTE that just beacuse an ASE, ACO, GPL, SOC or color file exists on the interne
 
 The following functions are implemented:
 
+-   `read_palette`: Generic function to read any supported palette type (determined by extension)
 -   `read_aco` : Read colors from Adobe Color (ACO) files
 -   `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
 -   `read_gpl` : Read GIMP Palette (GPL) files
@@ -21,15 +22,16 @@ The following functions are implemented:
 
 ### TODO
 
--   Grayscale support (just need to find or gen Grayscale ASE/ACO files, if you have a few please hook me up)
--   LAB support (could use some help with this)
--   Writing out ACO or ASE files (not sure this is needed, tho)
+-   ACO/ASE Grayscale support (just need to find or gen Grayscale ASE/ACO files, if you have a few please hook me up)
+-   ACO/ASE LAB support (could use some help with this)
+-   Writing out palette files (not sure this is needed, tho)
 
 ### News
 
+-   Version `0.4`: pre-CRAN flight check
+-   Version `0.3`: GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
+-   Version `0.2`: ACO v2 support
 -   Version `0.1` released
--   Version `0.2` released : ACO v2 support
--   Version `0.3` released : GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
 
 ### Installation
 
@@ -46,7 +48,7 @@ library(swatches)
 packageVersion("swatches")
 ```
 
-    ## [1] '0.3'
+    ## [1] '0.4'
 
 One good source for palettes is the ["Most Popular" section](https://color.adobe.com/explore/most-popular/?time=all) on Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette files directly locally or download them directly (registration required).
 
@@ -158,7 +160,7 @@ show_palette(omega_nebula)
 
 ![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
-For some reason (I haven't poked at the source code yet or talked to @hadleywickham), ggplot `scale_*_manual` (color/fill)'s do *not* like named color vectors. So you need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
+You need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
 
 ``` r
 library(ggplot2)
@@ -180,10 +182,13 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Mon Mar 23 17:24:15 2015"
+    ## [1] "Mon Aug 24 21:22:09 2015"
 
 ``` r
 test_dir("tests/")
 ```
 
-    ## basic functionality :
+    ## testthat results ================================================================
+    ## OK: 0 SKIPPED: 0 FAILED: 0
+    ## 
+    ## DONE

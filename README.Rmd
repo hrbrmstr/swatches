@@ -9,7 +9,7 @@ output:
 
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL) files
+`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL/SOC/KDE/COLORS) files
 
 In _Envisioning Information_, Edward Tufte says _"&hellip;avoiding catastrophe becomes the first
 principle in bringing color to information: Above all, do no harm."_ R users gain a quick upper hand
@@ -46,9 +46,10 @@ The following functions are implemented:
 
 ### News
 
+- Version `0.4`: pre-CRAN flight check
+- Version `0.3`: GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
+- Version `0.2`: ACO v2 support
 - Version `0.1` released
-- Version `0.2` released : ACO v2 support
-- Version `0.3` released : GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
 
 ### Installation
 
@@ -113,8 +114,7 @@ print(omega_nebula)
 show_palette(omega_nebula)
 ```
 
-For some reason (I haven't poked at the source code yet or talked to @hadleywickham), ggplot `scale_*_manual` (color/fill)'s do _not_
-like named color vectors. So you need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
+You need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
 
 ```{r fig.height=4}
 library(ggplot2)

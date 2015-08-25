@@ -133,3 +133,34 @@ show_palette <- function(palette) {
 
   }
 }
+
+#' Try to intelligently reduce a large palette down to a reasonable smaller
+#' set of colors
+#'
+#' Given a palette and a desired number of colors to use, this function will
+#' compute CIEDE2000 and attempt to reduce the input set to a disctinct
+#' smaller set of colors based on color distances.
+#'
+#' @param pal input palette to reduct
+#' @param n number of desired colors
+#' @return vector of \code{n} colors from \code{pal}
+#' @export
+trim_palette <- function(pal, n=5) {
+
+  tmp <- as(hex2RGB(pal, gamma=TRUE), "LAB")
+
+  ncols <- nrow(tmp@coords)
+  mm <- matrix(nrow=ncols, ncol=ncols)
+  invisible(lapply(1:ncols, function(i) {
+    lapply(1:ncols, function(j) {
+      mm[i, j] <<- deltaE2000(tmp[i], tmp[j], 1, 2, 1)
+    })
+  }))
+
+  mmd <- as.dist(mm)
+  hc <- hclust(mmd, method="ward.D2")
+  ct <- cutree(hc, n)
+
+  pal[!duplicated(ct)]
+
+}
