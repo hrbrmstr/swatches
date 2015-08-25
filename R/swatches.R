@@ -51,7 +51,7 @@ read_aco <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (!use_names) { pal <- unname(pal) }
 
-  pal
+  gsub(" ", "0", pal)
 
 }
 
@@ -108,7 +108,8 @@ read_ase <- function(path, use_names=TRUE, .verbose=FALSE) {
   pal <- decode_ase(ase, block_count)
 
   if (!use_names) { pal <- unname(pal) }
-  pal
+
+  gsub(" ", "0", pal)
 
 }
 
@@ -161,6 +162,6 @@ trim_palette <- function(pal, n=5) {
   hc <- hclust(mmd, method="ward.D2")
   ct <- cutree(hc, n)
 
-  pal[!duplicated(ct)]
+  gsub(" ", "0", pal[!duplicated(ct)])
 
 }

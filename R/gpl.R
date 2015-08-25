@@ -50,6 +50,6 @@ read_gpl <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (!use_names) { pal <- unname(pal) }
 
-  pal
+  gsub(" ", "0", pal)
 
 }

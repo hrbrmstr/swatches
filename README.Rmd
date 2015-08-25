@@ -2,7 +2,7 @@
 title: "README"
 author: "Bob Rudis"
 date: March 23, 2015
-output:
+output: 
   md_document:
     variant: markdown_github
 ---
@@ -46,6 +46,7 @@ The following functions are implemented:
 
 ### News
 
+- Version `0.4.2`: pre-CRAN flight check & Windows fix
 - Version `0.4`: pre-CRAN flight check
 - Version `0.3`: GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
 - Version `0.2`: ACO v2 support
