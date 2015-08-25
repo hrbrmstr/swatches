@@ -28,6 +28,7 @@ The following functions are implemented:
 
 ### News
 
+-   Version `0.4.2`: pre-CRAN flight check & Windows fix
 -   Version `0.4`: pre-CRAN flight check
 -   Version `0.3`: GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
 -   Version `0.2`: ACO v2 support
@@ -48,7 +49,7 @@ library(swatches)
 packageVersion("swatches")
 ```
 
-    ## [1] '0.4'
+    ## [1] '0.4.2'
 
 One good source for palettes is the ["Most Popular" section](https://color.adobe.com/explore/most-popular/?time=all) on Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette files directly locally or download them directly (registration required).
 
@@ -182,7 +183,7 @@ library(testthat)
 date()
 ```
 
-    ## [1] "Mon Aug 24 21:22:09 2015"
+    ## [1] "Tue Aug 25 13:35:55 2015"
 
 ``` r
 test_dir("tests/")

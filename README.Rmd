@@ -1,7 +1,7 @@
 ---
 title: "README"
 author: "Bob Rudis"
-date: March 23, 2015
+date: August 25, 2015
 output: 
   md_document:
     variant: markdown_github
