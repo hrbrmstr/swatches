@@ -1,46 +1,76 @@
-[![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 
-`swatches` is a package to read (and eventually write) palette (ACO/ASE/GPL/SOC/KDE/COLORS) files
+[![Build
+Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/swatches?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/swatches)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/hrbrmstr/swatches/master.svg)](https://codecov.io/github/hrbrmstr/swatches?branch=master)
 
-In *Envisioning Information*, Edward Tufte says *"…avoiding catastrophe becomes the first principle in bringing color to information: Above all, do no harm."* R users gain a quick upper hand in adhering to this "do no harm" thanks to sane defaults in `ggplot2` and packages like [ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html) and [RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html) that enable use of established, good color palettes.
+# swatches
 
-If you do visualization work in conjunction with a design shop or organization that establishes their own palettes and themes there will often be standard palettes that must be adhered to. These are usually stored and shared in some type of Adobe swatch file format. There are also many sites like [Adobe Color CC](https://color.adobe.com/) and [COLOUR Lovers](http://www.colourlovers.com/) where folks can create and share color palettes. Plus, there are thousands of other palette files in dozens of palette formates.
+Read, Inspect, and Manipulate Color Swatch Files
+(ACO/ASE/GPL/SOC/KDE/COLORS)
 
-This package enables you to use the colors straight from `.ase`, `.aso`, `.gpl`, `.soc` or `.color` files and avoid the cutting/pasting of hex codes or using color pickers to extract the color information. You can read these swatch files directly from the internet and/or include the files directly in your R projects. This will make it easier to modify a resource versus change code.
+## Description
 
-NOTE that just beacuse an ASE, ACO, GPL, SOC or color file exists on the internet does *not* mean that it will let you "do no harm". You still need to use good judgement from knowledge/experience (or advice from experts) to ensure you are using colors effectively. This package just opens up the world of colors in R a little bit more.
+In *Envisioning Information*, Edward Tufte says *“…avoiding catastrophe
+becomes the first principle in bringing color to information: Above all,
+do no harm.”* R users gain a quick upper hand in adhering to this “do no
+harm” thanks to sane defaults in `ggplot2` and packages like
+[ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html)
+and
+[RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html)
+that enable use of established, good color palettes.
+
+If you do visualization work in conjunction with a design shop or
+organization that establishes their own palettes and themes there will
+often be standard palettes that must be adhered to. These are usually
+stored and shared in some type of Adobe swatch file format. There are
+also many sites like [Adobe Color CC](https://color.adobe.com/) and
+[COLOUR Lovers](http://www.colourlovers.com/) where folks can create and
+share color palettes. Plus, there are thousands of other palette files
+in dozens of palette formates.
+
+This package enables you to use the colors straight from `.ase`, `.aso`,
+`.gpl`, `.soc` or `.color` files and avoid the cutting/pasting of hex
+codes or using color pickers to extract the color information. You can
+read these swatch files directly from the internet and/or include the
+files directly in your R projects. This will make it easier to modify a
+resource versus change code.
+
+NOTE that just beacuse an ASE, ACO, GPL, SOC or color file exists on the
+internet does *not* mean that it will let you “do no harm”. You still
+need to use good judgement from knowledge/experience (or advice from
+experts) to ensure you are using colors effectively. This package just
+opens up the world of colors in R a little bit more.
+
+## What’s Inside The Tin
 
 The following functions are implemented:
 
--   `read_palette`: Generic function to read any supported palette type (determined by extension)
--   `read_aco` : Read colors from Adobe Color (ACO) files
--   `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
--   `read_gpl` : Read GIMP Palette (GPL) files
--   `read_soc` : Read OpenOffice palette (SOC) files
--   `read_kde` : Read KDE Palette (colors) files
--   `show_palette` :Display a color palette
+  - `read_palette`: Generic function to read any supported palette type
+    (determined by extension)
+  - `read_aco` : Read colors from Adobe Color (ACO) files
+  - `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
+  - `read_gpl` : Read GIMP Palette (GPL) files
+  - `read_soc` : Read OpenOffice palette (SOC) files
+  - `read_kde` : Read KDE Palette (colors) files
+  - `show_palette` :Display a color palette
 
 ### TODO
 
--   ACO/ASE Grayscale support (just need to find or gen Grayscale ASE/ACO files, if you have a few please hook me up)
--   ACO/ASE LAB support (could use some help with this)
--   Writing out palette files (not sure this is needed, tho)
+  - ACO/ASE Grayscale support (just need to find or gen Grayscale
+    ASE/ACO files, if you have a few please hook me up)
+  - ACO/ASE LAB support (could use some help with this)
+  - Writing out palette files (not sure this is needed, tho)
 
-### News
-
--   Version `0.4.2`: pre-CRAN flight check & Windows fix
--   Version `0.4`: pre-CRAN flight check
--   Version `0.3`: GIMP Palette (GPL) format support, KDE Palette (colors) and OpenOffice palette (SOC) format
--   Version `0.2`: ACO v2 support
--   Version `0.1` released
-
-### Installation
+## Installation
 
 ``` r
 devtools::install_github("hrbrmstr/swatches")
 ```
 
-### Usage & Exposition
+## Usage & Exposition
 
 ``` r
 library(swatches)
@@ -49,17 +79,27 @@ library(swatches)
 packageVersion("swatches")
 ```
 
-    ## [1] '0.4.2'
+    ## [1] '0.5.0'
 
-One good source for palettes is the ["Most Popular" section](https://color.adobe.com/explore/most-popular/?time=all) on Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette files directly locally or download them directly (registration required).
+One good source for palettes is the [“Most Popular”
+section](https://color.adobe.com/explore/most-popular/?time=all) on
+Adobe Color CC. If you use the Adobe ecosystem, you can sync ASE palette
+files directly locally or download them directly (registration
+required).
 
-![](https://www.evernote.com/shard/s1/sh/357686a4-3688-4f01-887d-463a259fc5ec/a83815d1519e5db35f80f5e5c52e15e3/deep/0/Explore---Most-Popular---Adobe-Color-CC.png)
+![](img/adobe01.png)
 
-The "Herbs and Spice" and "Keep the Change" palettes are kinda nifty, and also included in this package (since Adobe has yet to release the new API for the color site for automatic downloading). We can take a quick look at both of them. Here they are from the web site:
+The “Herbs and Spice” and “Keep the Change” palettes are kinda nifty,
+and also included in this package (since Adobe has yet to release the
+new API for the color site for automatic downloading). We can take a
+quick look at both of them. Here they are from the web site:
 
-![](http://note.io/1I51HRo)
+![](img/hns.png)
 
-And, there they are via this package:
+![](img/ktc.png)
+
+And, there they are via this
+package:
 
 ``` r
 herbs_and_spice <- read_ase(system.file("palettes", "herbs_and_spice.ase", package="swatches"))
@@ -73,7 +113,7 @@ print(herbs_and_spice)
 show_palette(herbs_and_spice)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ``` r
 keep_the_change <- read_ase(system.file("palettes", "keep_the_change.ase", package="swatches"))
@@ -87,9 +127,11 @@ print(keep_the_change)
 show_palette(keep_the_change)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
-As said earlier, you can also read directly from a URL. Here is a "metal" palette ripped straight [from github](https://github.com/picwellwisher12pk/en_us/):
+As said earlier, you can also read directly from a URL. Here is a
+“metal” palette ripped straight [from
+github](https://github.com/picwellwisher12pk/en_us/):
 
 ``` r
 metal <- read_ase("https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase")
@@ -139,11 +181,17 @@ print(metal)
 show_palette(metal)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
-As you can see, this "metal" palette actually had named colors (albeit bland, CMYK value names).
+As you can see, this “metal” palette actually had named colors (albeit
+bland, CMYK value names).
 
-Some palettes, like the Omega Nebula (CC-BY-SA [davidgav](http://www.colourlovers.com/lover/davidgav/loveNote)) one included with the package, have license restrictions (the mind *boggles*), so be aware of that when blatantly using others' designs without attribution. David's palette has much better names:
+Some palettes, like the Omega Nebula (CC-BY-SA
+[davidgav](http://www.colourlovers.com/lover/davidgav/loveNote)) one
+included with the package, have license restrictions (the mind
+*boggles*), so be aware of that when blatantly using others’ designs
+without attribution. David’s palette has much better
+names:
 
 ``` r
 omega_nebula <- read_ase(system.file("palettes", "omega_nebula.ase", package="swatches"))
@@ -159,9 +207,10 @@ print(omega_nebula)
 show_palette(omega_nebula)
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
-You need to use `unname` (or `use_names=FALSE` in `read_ase` or `read_aco`) before using them as `values`:
+You need to use `unname` (or `use_names=FALSE` in `read_ase` or
+`read_aco`) before using them as `values`:
 
 ``` r
 library(ggplot2)
@@ -172,24 +221,10 @@ gg <- gg + theme_bw()
 gg
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-### Test Results
+## Code of Conduct
 
-``` r
-library(swatches)
-library(testthat)
-
-date()
-```
-
-    ## [1] "Tue Aug 25 13:35:55 2015"
-
-``` r
-test_dir("tests/")
-```
-
-    ## testthat results ================================================================
-    ## OK: 0 SKIPPED: 0 FAILED: 0
-    ## 
-    ## DONE
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.

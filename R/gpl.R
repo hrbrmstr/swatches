@@ -13,24 +13,29 @@
 #' @export
 #' @examples
 #' # built-in palette
-#' gimp16 <- read_gpl(system.file("palettes",
-#'                      "base16.gpl", package="swatches"))
+#' gimp16 <- read_gpl(system.file("palettes", "base16.gpl", package="swatches"))
 #' print(gimp16)
-#' #show_palette(gimp16)
+#' show_palette(gimp16)
 #'
 #' # from the internet directly
-#' # bright <- read_gpl("http://l.dds.ec/gimppal16")
-#' # print(bright)
-#' # show_palette(bright)
+#' \dontrun{
+#  URL <- https://raw.githubusercontent.com/chriskempson/base16-gimp-palette/master/base16-bright.gpl"
+#' bright <- read_gpl(URL)
+#' print(bright)
+#' show_palette(bright)
+#' }
 read_gpl <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (is_url(path)) {
     tf <- tempfile()
-    stop_for_status(GET(path, write_disk(tf)))
+    httr::stop_for_status(httr::GET(path, httr::write_disk(tf)))
     path <- tf
+    on.exit(unlink(tf), add = TRUE)
   }
 
-  gpl <- readLines(path.expand(path), warn=FALSE)
+  path <- normalizePath(path.expand(path))
+
+  gpl <- readLines(path, warn=FALSE)
 
   p_name <- gsub("Name:\ +", "", gpl[2])
   n_colors <- gsub("Columns:\ +", "", gpl[3])

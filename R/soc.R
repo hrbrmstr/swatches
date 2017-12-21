@@ -16,32 +16,39 @@
 #' system(sprintf("cat %s", soc_file))
 #' ccooo <- read_soc(soc_file)
 #' print(ccooo)
-#' #show_palette(ccooo)
+#' show_palette(ccooo)
 #'
 #' # from the internet directly
-#' # galaxy <- read_soc("https://www.openoffice.org/ui/VisualDesign/docs/colors/galaxy.soc")
-#' # print(galaxy)
-#' # show_palette(galaxy)
+#' \dontrun{
+#' galaxy <- read_soc("https://www.openoffice.org/ui/VisualDesign/docs/colors/galaxy.soc")
+#' print(galaxy)
+#' show_palette(galaxy)
+#' }
 read_soc <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (is_url(path)) {
     tf <- tempfile()
-    stop_for_status(GET(path, write_disk(tf)))
+    httr::stop_for_status(GET(path, httr::write_disk(tf)))
     path <- tf
   }
 
+  path <- normalizePath(path.expand(path))
+
   pal <- NULL
 
-  soc <- xmlParse(path)
-  tmp <- gsub("^\ +", "", xpathSApply(soc, "//draw:color", xmlAttrs, "draw:name"))
-  pal <- tmp[seq(2, length(tmp), 2)]
-  names(pal) <- tmp[seq(1, length(tmp), 2)]
+  soc <- xml2::read_xml(path)
+
+  col_nodes <- xml2::xml_find_all(soc, "//draw:color", ns = xml2::xml_ns(soc))
+
+  x_names <- xml2::xml_attr(col_nodes, "draw:name", ns = xml2::xml_ns(soc))
+  x_names <- trimws(x_names)
+
+  pal <- xml2::xml_attr(col_nodes, "draw:color", ns = xml2::xml_ns(soc))
+  names(pal) <- x_names
 
   n_colors <- length(pal)
 
-  if (.verbose) {
-    message("# Colors: " , n_colors)
-  }
+  if (.verbose) message("# Colors: " , n_colors)
 
   if (!use_names) { pal <- unname(pal) }
 

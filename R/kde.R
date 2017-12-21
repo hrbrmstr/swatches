@@ -13,8 +13,7 @@
 #' @export
 #' @examples
 #' # built-in palette
-#' fourty <- read_kde(system.file("palettes",
-#'                      "fourty.colors", package="swatches"))
+#' fourty <- read_kde(system.file("palettes", "fourty.colors", package="swatches"))
 #' print(fourty)
 #' #show_palette(fourty)
 #'
@@ -23,17 +22,18 @@ read_kde <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   if (is_url(path)) {
     tf <- tempfile()
-    stop_for_status(GET(path, write_disk(tf)))
+    httr::stop_for_status(httr::GET(path, httr::write_disk(tf)))
     path <- tf
+    on.exit(unlink(tf), add = TRUE)
   }
 
-  kde <- grep("^$", readLines(path.expand(path), warn=FALSE), value=TRUE, invert=TRUE)
+  path <- normalizePath(path.expand(path))
+
+  kde <- grep("^$", readLines(path, warn=FALSE), value=TRUE, invert=TRUE)
 
   n_colors <- length(kde) - 1
 
-  if (.verbose) {
-    message("# Colors: " , n_colors)
-  }
+  if (.verbose) message("# Colors: " , n_colors)
 
   pal <- NULL
 

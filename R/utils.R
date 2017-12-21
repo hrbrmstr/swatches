@@ -30,7 +30,7 @@ b2f <- function(four_bytes) {
   floatraw2numeric(four_bytes[c(4,3,2,1)])
 }
 
-is_url <-function(x) { grepl("www.|http:|https:", x) }
+is_url <-function(x) { grepl("(www\\.|http\\:|https\\:)", x) }
 
 #' @useDynLib swatches r_floatraw2numeric
 floatraw2numeric <- function(x) {
@@ -39,16 +39,17 @@ floatraw2numeric <- function(x) {
   .Call(r_floatraw2numeric, x)
 }
 
-#CIEDE2000
+# CIEDE2000
 
-deltaE2000 <- function(Labstd,Labsample,kl=1,kc=1,kh=1) {
-  lstd <- coords(Labstd)[,1]
-  astd <- coords(Labstd)[,2]
-  bstd <- coords(Labstd)[,3]
+# Gaurav Sharma & Maynard P Baalthazar
+deltaE2000 <- function(Labstd, Labsample, kl=1, kc=1, kh=1) {
+  lstd <- colorspace::coords(Labstd)[,1]
+  astd <- colorspace::coords(Labstd)[,2]
+  bstd <- colorspace::coords(Labstd)[,3]
   Cabstd <- sqrt(astd^2+bstd^2)
-  lsample <- coords(Labsample)[,1]
-  asample <- coords(Labsample)[,2]
-  bsample <- coords(Labsample)[,3]
+  lsample <- colorspace::coords(Labsample)[,1]
+  asample <- colorspace::coords(Labsample)[,2]
+  bsample <- colorspace::coords(Labsample)[,3]
   Cabsample <- sqrt(asample^2 + bsample^2)
   Cabarithmean <- (Cabstd + Cabsample)/2
   G <- 0.5* ( 1 - sqrt( (Cabarithmean^7)/(Cabarithmean^7 + 25^7)))
@@ -93,14 +94,19 @@ deltaE2000 <- function(Labstd,Labsample,kl=1,kc=1,kh=1) {
   de00 <- sqrt( (dL/klSl)^2 + (dC/kcSc)^2 + (dH/khSh)^2 + RT*(dC/kcSc)*(dH/khSh) )
 
   return(as.numeric(de00))
+
 }
 
 
 sort_colors <- function(col) {
-  c.rgb <- col2rgb(col)
-  c.RGB <- RGB(t(c.rgb) %*% diag(rep(1/255, 3)))
-  c.HSV <- as(c.RGB, "HSV")@coords
-  col[rev(order(c.HSV[, 1], c.HSV[, 2], c.HSV[, 3]))]
+
+  c_rgb <- col2rgb(col)
+
+  c_RGB <- RGB(t(c_rgb) %*% diag(rep(1/255, 3)))
+  c_HSV <- as(c_RGB, "HSV")@coords
+
+  col[rev(order(c_HSV[, 1], c_HSV[, 2], c_HSV[, 3]))]
+
 }
 
 

@@ -15,6 +15,8 @@ read_palette <- function(path, use_names=TRUE, .verbose=FALSE) {
 
   ext <- file_ext(path)
 
+  path <- normalizePath(path.expand(path))
+
   if (ext == "aco") { return(read_aco(path, use_names, .verbose)) }
   if (ext == "ase") { return(read_ase(path, use_names, .verbose)) }
   if (ext == "gpl") { return(read_gpl(path, use_names, .verbose)) }

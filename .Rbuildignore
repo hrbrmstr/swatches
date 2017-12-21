@@ -4,3 +4,7 @@
 ^.*md$
 ^README_files
 ^README\.html$
+^appveyor\.yml$
+^codecov\.yml$
+^CONDUCT\.md$
+^img$
