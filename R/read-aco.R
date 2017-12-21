@@ -7,9 +7,8 @@
 #' @param use_names add color names to the vector (defaults to \code{TRUE}). See NOTE
 #' @param .verbose show extra information about ACO file processing
 #' @note When using named color palettes in a \code{ggplot2} \code{scale_} context, you
-#'     must \code{unname} them or set \code{use_names} to \code{FALSE}.
-#'     Not sure if this is a bug or a deliberate feature in ggplot2. Also, Neither Lab nor
-#'     greyscale colors are supported.
+#'     must \code{unname}, set \code{use_names} to \code{FALSE} or override their names
+#'     to map to your own factor levels.
 #' @export
 #' @examples
 #' # built-in palette
