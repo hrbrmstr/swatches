@@ -4,9 +4,11 @@ editor_options:
   chunk_output_type: console
 ---
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/swatches)](https://cran.r-project.org/package=swatches)
 [![Build Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/swatches?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/swatches)
 [![Coverage Status](https://img.shields.io/codecov/c/github/hrbrmstr/swatches/master.svg)](https://codecov.io/github/hrbrmstr/swatches?branch=master)
+[![](http://cranlogs.r-pkg.org/badges/swatches)](http://cran.rstudio.com/web/packages/swatches/index.html)
 
 # swatches
 

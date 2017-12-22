@@ -8,3 +8,4 @@
 ^codecov\.yml$
 ^CONDUCT\.md$
 ^img$
+^cran-comments\.md$

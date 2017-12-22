@@ -7,7 +7,6 @@ Authors@R: c(
     person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
            comment = c(ORCID = "0000-0001-5670-2640"))
   )
-Author: Bob Rudis (bob@rud.is)
 Maintainer: Bob Rudis <bob@rud.is>
 Description: There are numerous places to create and download color
     palettes. These are usually shared in 'Adobe' swatch file formats of

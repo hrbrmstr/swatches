@@ -1,10 +1,12 @@
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/swatches)](https://cran.r-project.org/package=swatches)
 [![Build
 Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/swatches?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/swatches)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/hrbrmstr/swatches/master.svg)](https://codecov.io/github/hrbrmstr/swatches?branch=master)
+[![](http://cranlogs.r-pkg.org/badges/swatches)](http://cran.rstudio.com/web/packages/swatches/index.html)
 
 # swatches
 
@@ -16,20 +18,18 @@ Read, Inspect, and Manipulate Color Swatch Files
 In *Envisioning Information*, Edward Tufte says *“…avoiding catastrophe
 becomes the first principle in bringing color to information: Above all,
 do no harm.”* R users gain a quick upper hand in adhering to this “do no
-harm” thanks to sane defaults in `ggplot2` and packages like
-[ggthemes](http://cran.r-project.org/web/packages/ggthemes/index.html)
-and
-[RColorBrewer](http://cran.r-project.org/web/packages/RColorBrewer/index.html)
-that enable use of established, good color palettes.
+harm” thanks to sane defaults in `ggplot2` and packages like `viridis`,
+`ggthemes` or `RColorBrewer` that enable use of established and good
+color palettes.
 
 If you do visualization work in conjunction with a design shop or
 organization that establishes their own palettes and themes there will
 often be standard palettes that must be adhered to. These are usually
 stored and shared in some type of Adobe swatch file format. There are
 also many sites like [Adobe Color CC](https://color.adobe.com/) and
-[COLOUR Lovers](http://www.colourlovers.com/) where folks can create and
-share color palettes. Plus, there are thousands of other palette files
-in dozens of palette formates.
+[COLOUR Lovers](https://www.colourlovers.com/) where folks can create
+and share color palettes. Plus, there are thousands of other palette
+files in dozens of palette formates.
 
 This package enables you to use the colors straight from `.ase`, `.aso`,
 `.gpl`, `.soc` or `.color` files and avoid the cutting/pasting of hex
