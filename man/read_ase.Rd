@@ -19,8 +19,8 @@ a named character vector (if color names are present) of hex RGB colors.
 }
 \note{
 When using named color palettes in a \code{ggplot2} \code{scale_} context, you
-    must \code{unname}, set \code{use_names} to \code{FALSE} or override their names
-    to map to your own factor levels. Also, Neither Lab nor greyscale colors are supported.
+must \code{unname}, set \code{use_names} to \code{FALSE} or override their names
+to map to your own factor levels. Also, Neither Lab nor greyscale colors are supported.
 }
 \examples{
 # built-in palette
@@ -30,8 +30,8 @@ show_palette(keep_the_change)
 
 # from the internet directly
 \dontrun{
-github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
-metal <- read_ase(github)
+github_url <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
+metal <- read_ase(github_url)
 print(metal)
 show_palette(metal)
 }

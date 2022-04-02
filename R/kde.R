@@ -37,7 +37,7 @@ read_kde <- function(path, use_names=TRUE, .verbose=FALSE) {
   pal <- NULL
 
   pal <- sapply(2:length(kde), function(i) {
-    mat <- str_match(kde[i],
+    mat <- stri_match(kde[i],
 "[[:blank:]]*([[:digit:]]+)[[:blank:]]*([[:digit:]]+)[[:blank:]]*([[:digit:]]+)[[:blank:]]*(.*)$")
     rgb(mat[2], mat[3], mat[4], names=mat[5], maxColorValue=255)
   })

@@ -47,7 +47,7 @@ read_gpl <- function(path, use_names=TRUE, .verbose=FALSE) {
   pal <- NULL
 
   pal <- sapply(5:length(gpl), function(i) {
-    mat <- str_match(gpl[i],
+    mat <- stri_match(gpl[i],
 "[[:blank:]]*([[:digit:]]+)[[:blank:]]*([[:digit:]]+)[[:blank:]]*([[:digit:]]+)[[:blank:]]*(.*)$")
     rgb(mat[2], mat[3], mat[4], names=mat[5], maxColorValue=255)
   })

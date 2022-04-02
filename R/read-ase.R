@@ -18,8 +18,8 @@
 #'
 #' # from the internet directly
 #' \dontrun{
-#' github <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
-#' metal <- read_ase(github)
+#' github_url <- "https://github.com/picwellwisher12pk/en_us/raw/master/Swatches/Metal.ase"
+#' metal <- read_ase(github_url)
 #' print(metal)
 #' show_palette(metal)
 #' }

@@ -1,5 +1,5 @@
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/swatches)](https://cran.r-project.org/package=swatches)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/swatches)](https://cran.r-project.org/package=swatches)
 [![Build
 Status](https://travis-ci.org/hrbrmstr/swatches.svg)](https://travis-ci.org/hrbrmstr/swatches)
 [![AppVeyor Build
@@ -10,7 +10,7 @@ Status](https://img.shields.io/codecov/c/github/hrbrmstr/swatches/master.svg)](h
 
 # swatches
 
-Read, Inspect, and Manipulate Color Swatch Files
+Read, Inspect, Manipulate, and Save (ASE) Color Swatch Files
 (ACO/ASE/GPL/SOC/KDE/COLORS)
 
 ## Description
@@ -48,21 +48,26 @@ opens up the world of colors in R a little bit more.
 
 The following functions are implemented:
 
-  - `read_palette`: Generic function to read any supported palette type
+-   `read_palette`: Generic function to read any supported palette type
     (determined by extension)
-  - `read_aco` : Read colors from Adobe Color (ACO) files
-  - `read_ase` : Read colors from Adobe Swatch Exchange (ASE) files
-  - `read_gpl` : Read GIMP Palette (GPL) files
-  - `read_soc` : Read OpenOffice palette (SOC) files
-  - `read_kde` : Read KDE Palette (colors) files
-  - `show_palette` :Display a color palette
+-   `read_aco`: Read colors from Adobe Color (ACO) files
+-   `read_ase`: Read colors from Adobe Swatch Exchange (ASE) files
+-   `read_gpl`: Read GIMP Palette (GPL) files
+-   `read_soc`: Read OpenOffice palette (SOC) files
+-   `read_kde`: Read KDE Palette (colors) files
+-   `show_palette`: Display a color palette
+-   `add_color`: Add a named color to an ASE swatch object
+-   `ase_encode`: Encode a built ASE object for output
+-   `create_ase`: Create an ASE object
+-   `hex_to_ase`: Convert a list of named, hexadecimal RBG colors into
+    an ASE object
 
 ### TODO
 
-  - ACO/ASE Grayscale support (just need to find or gen Grayscale
+-   ACO/ASE Grayscale support (just need to find or gen Grayscale
     ASE/ACO files, if you have a few please hook me up)
-  - ACO/ASE LAB support (could use some help with this)
-  - Writing out palette files (not sure this is needed, tho)
+-   ACO/ASE LAB support (could use some help with this)
+-   Writing out palette files (somewhat done!)
 
 ## Installation
 
@@ -79,7 +84,7 @@ library(swatches)
 packageVersion("swatches")
 ```
 
-    ## [1] '0.5.0'
+    ## [1] '0.6.0'
 
 One good source for palettes is the [“Most Popular”
 section](https://color.adobe.com/explore/most-popular/?time=all) on
@@ -98,8 +103,7 @@ quick look at both of them. Here they are from the web site:
 
 ![](img/ktc.png)
 
-And, there they are via this
-package:
+And, there they are via this package:
 
 ``` r
 herbs_and_spice <- read_ase(system.file("palettes", "herbs_and_spice.ase", package="swatches"))
@@ -190,8 +194,7 @@ Some palettes, like the Omega Nebula (CC-BY-SA
 [davidgav](http://www.colourlovers.com/lover/davidgav/loveNote)) one
 included with the package, have license restrictions (the mind
 *boggles*), so be aware of that when blatantly using others’ designs
-without attribution. David’s palette has much better
-names:
+without attribution. David’s palette has much better names:
 
 ``` r
 omega_nebula <- read_ase(system.file("palettes", "omega_nebula.ase", package="swatches"))

@@ -19,8 +19,8 @@ a named character vector (if color names are present) of hex RGB colors.
 }
 \note{
 When using named color palettes in a \code{ggplot2} \code{scale_} context, you
-    must \code{unname}, set \code{use_names} to \code{FALSE} or override their names
-    to map to your own factor levels.
+must \code{unname}, set \code{use_names} to \code{FALSE} or override their names
+to map to your own factor levels.
 }
 \examples{
 # built-in palette
